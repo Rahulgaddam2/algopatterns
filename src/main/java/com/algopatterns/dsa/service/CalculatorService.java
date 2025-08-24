@@ -17,6 +17,9 @@ public class CalculatorService {
                     throw new IllegalArgumentException("Division by zero is not allowed");
                 }
                 return num1 / num2;
+            case "mod":
+                if (num2 == 0) throw new IllegalArgumentException("Modulo by zero is not allowed");
+                return num1 % num2;
             default:
                 throw new IllegalArgumentException("Invalid operation: " + operation);
         }
