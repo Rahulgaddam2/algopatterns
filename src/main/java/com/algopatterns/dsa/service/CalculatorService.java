@@ -20,6 +20,12 @@ public class CalculatorService {
             case "mod":
                 if (num2 == 0) throw new IllegalArgumentException("Modulo by zero is not allowed");
                 return num1 % num2;
+            case "power":
+                int result = 1;
+                for(int i=0;i<num2;i++){
+                    result *= num1;
+                }
+                return num1;
             default:
                 throw new IllegalArgumentException("Invalid operation: " + operation);
         }
