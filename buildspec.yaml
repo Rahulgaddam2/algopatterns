@@ -4,7 +4,7 @@ env:
   variables:
     AWS_DEFAULT_REGION: us-east-1
     REPOSITORY_URI: 954724046102.dkr.ecr.us-east-1.amazonaws.com/dsa-app-image
-    DOCKER_CONTAINER_NAME: dsa-app-image   # must match ECS container name
+    DOCKER_CONTAINER_NAME: dsa-app-image  # must match ECS container name
 
 phases:
   pre_build:
@@ -13,7 +13,7 @@ phases:
       - mvn -q -DskipTests package
       - echo "Login to ECR..."
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $REPOSITORY_URI
-      - IMAGE_TAG="build-$(echo $CODEBUILD_BUILD_ID | awk -F: '{print $2}')"  # unique per run
+      - IMAGE_TAG="build-$(echo $CODEBUILD_BUILD_ID | awk -F: '{print $2}')"
 
   build:
     commands:
