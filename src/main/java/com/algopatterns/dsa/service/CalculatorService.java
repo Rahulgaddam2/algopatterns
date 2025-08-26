@@ -26,8 +26,6 @@ public class CalculatorService {
                     result *= num1;
                 }
                 return num1;
-            case "yashwanth":
-                return num1+num2+num2+num1;
             default:
                 throw new IllegalArgumentException("Invalid operation: " + operation);
         }
